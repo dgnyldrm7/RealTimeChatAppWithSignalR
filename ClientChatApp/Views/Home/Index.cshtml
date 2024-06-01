@@ -1,0 +1,131 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Scripts {
+    <script src="~/lib/signalr/signal-client.js"></script>
+}
+
+
+
+<div class="card">
+    <div class="card-body">
+        
+        <div class="row">
+            <div class="col-md-4">
+                            <form onsubmit="event.preventDefault();" role="search">
+                                <input id="search" type="search" placeholder="Ara" autofocus required />
+                                <button type="submit">Ara</button>
+                            </form>
+
+                            <div class="container my-5">
+                                <div class="card my-2">
+                                    <div class="d-inline-flex p-2">
+
+                                        <div>
+                                            <img style="widht: 45px; height: 45px;border-radius: 50px" src="https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg?w=740&t=st=1717106633~exp=1717107233~hmac=6873efe636591f840f9c6a91ea6750d8544d75cd26cea70ce36e12f24eaf7b07" alt="Profile Photo" />
+                                        </div>
+
+                                        <div class="d-inline-flex justify-content-center mx-3 flex-column">
+                                            <strong>Doğan Yıldırım</strong>
+                                            <span class="text-danger">online now</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="card my-2">
+                                    <div class="d-inline-flex p-2">
+
+                                        <div>
+                                            <img style="widht: 45px; height: 45px;border-radius: 50px" src="https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg?w=740&t=st=1717106633~exp=1717107233~hmac=6873efe636591f840f9c6a91ea6750d8544d75cd26cea70ce36e12f24eaf7b07" alt="Profile Photo" />
+                                        </div>
+
+                                        <div class="d-inline-flex justify-content-center mx-3 flex-column">
+                                            <strong>Doğan Yıldırım</strong>
+                                            <span class="text-danger">online now</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                
+                            </div>
+
+
+            </div>
+            <div class="col-md-8">
+                <div class="d-inline-flex mx-5">
+                    
+                    <div>
+                        <img style="widht: 45px; height: 45px;border-radius: 50px" src="https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671142.jpg?w=740&t=st=1717106633~exp=1717107233~hmac=6873efe636591f840f9c6a91ea6750d8544d75cd26cea70ce36e12f24eaf7b07" alt="Profile Photo" />
+                    </div>
+                        
+                    <div class="d-inline-flex justify-content-center flex-column mx-2">
+                        <strong>Doğan Yıldırım</strong>
+                        <span class="text-danger">online now</span>
+                    </div>
+                </div>
+
+
+                <div class="container">
+                    <button class="btn btn-danger" id="allmessage" >All Send Mesage Client!</button>
+                </div>
+
+
+                <div class="container mt-4">
+                    <div class="card">
+                        <div class="card-body" id="chat-box" style="height: 450px; overflow-y: scroll;">
+                            <!-- Mesajlar burada görünecek -->
+                        </div>
+                        <div class="card-footer">
+                            <form id="chat-form" class="d-flex">
+                                <input type="text" class="form-control" id="message-input" placeholder="Mesajınızı yazın...">
+                                <button type="submit" class="btn btn-primary">Gönder</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    document.getElementById('chat-form').addEventListener('submit', function (event) {
+                        event.preventDefault();
+                        const messageInput = document.getElementById('message-input');
+                        const message = messageInput.value;
+
+                        if (message.trim() !== '') {
+                            const chatBox = document.getElementById('chat-box');
+                            const newMessage = document.createElement('div');
+                            newMessage.classList.add('p-2', 'my-2', 'bg-light', 'rounded');
+                            newMessage.textContent = message;
+
+                            chatBox.appendChild(newMessage);
+                            chatBox.scrollTop = chatBox.scrollHeight;
+
+                        }
+                    });
+                </script>
+
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+
+              
+
+
+            </div>
+        </div>
+
+
+
+      
+
+
+
+
+
+
+
+
+    </div>
+</div>
+
